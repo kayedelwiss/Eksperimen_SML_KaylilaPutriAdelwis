@@ -1,0 +1,35 @@
+name: preprocessing pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  preprocessing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: run preprocessing
+        run: |
+          python preprocessing/automate_kaylila.py
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: preprocessing-dataset
+          path: preprocessing/dataset_preprocessing
