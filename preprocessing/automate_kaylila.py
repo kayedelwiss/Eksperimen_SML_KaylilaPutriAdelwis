@@ -46,7 +46,7 @@ def preprocess_data(input_path, output_dir):
     pd.DataFrame(y_test).to_csv(f'{output_dir}/y_test.csv', index=False)
 
 if __name__ == '__main__':
-    preprocess_data(
-        '../dataset_raw/healthcare-dataset-stroke-data.csv',
-        'dataset_preprocessing'
-    )
+   preprocess_data(
+    'dataset_raw/healthcare-dataset-stroke-data.csv',
+    'preprocessing/dataset_preprocessing'
+)
